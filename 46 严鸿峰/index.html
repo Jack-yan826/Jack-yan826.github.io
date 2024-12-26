@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <style>
+    .header{
+        position: fixed;
+        top: 0;
+        z-index: 3;
+    }
+    .nav{
+        position: fixed;
+        top: 80px;
+        width: 1206px;
+        z-index: 3;
+        left: 0;
+        right: 0;
+    }
+    .banner{
+        width: 1206px;
+        height: 400px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+    }
+    .banner .banner_p{
+        position: absolute;
+        width: 1206px;
+        height: 400px;
+        z-index: 1;
+    }
+    .banner .banner_p li{
+        float: left;
+        width: 1206px;
+        height: 400px;
+    }
+    .banner .banner_p li img{
+        width: 100%;
+        height: 100%;
+    }
+    .banner .banner_b{
+        position: absolute;
+        bottom: 20px;
+        width: 200px;
+        height: 10px;
+        z-index: 2;
+        left: 500px;
+    }
+    .banner .banner_b li{
+        margin-left: 5px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #6ca1a0;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+    }
+    .banner .banner_b li .on{
+        background-color: #eef5f7;
+        color: #6ca1a0;
+    }
+    .iconfont{
+        font-size: 50px;
+        color:blue;
+    }
+    .mains{
+        position: absolute;
+        top:130px;
+    }
+    .mains span{
+        position: absolute;
+        right: 50px;
+        bottom: 40px;
+        float: right;
+        width: 50px;
+        height: 50px;
+    }
+    .mains audio{
+        position:absolute;
+        float: right;
+        width: 80px;
+        height: 55px;
+        right: 30px;
+        background-color:aqua;
+        top: 40px;
+        z-index: 2;
+    }
+    .subject{
+        width: 1206px;
+        height: 300px;
+        margin: 0 auto;
+        padding: 50px;
+        background-color: beige;
+        border: 20px solid lightblue;
+        background-image: url(images/background3.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: rgba(255,255,255,0.5);
+    }
+    .subject p{
+        color: black;
+        font-size: 40px;
+        font-family: "宋体";
+        word-wrap: 10px;
+        text-align: center;
+    }
+    .footers{
+        position: relative;
+    }
+    .footer{
+        position: absolute;
+        margin-top: 830px;
+        z-index: 3;
+    }
+    </style>
+</head>
+<body>
+    <div class="header" id="#top">
+    <h1>个人简历</h1>
+    </div>
+    <div class="nav">
+        <ul>
+        <li><a href="about.html">关于我</a></li>
+        <li><a href="work.html">工作经历</a></li>
+        <li><a href="edu.html">教育背景</a></li>
+        <li><a href="skills.html">技能特长</a></li>
+        <li><a href="conact.html">联系我</a></li>
+        </ul>
+    </div>
+    <div class="mains">
+        <a href="#top"><span class="iconfont icon-top"></span></a>
+		<audio src="./media/Capo-Productions《Journey》.mp3" controls autoplay loop preload="auto"></audio>
+<div class="main">
+     <div class="banner" id="wrap">
+            <ul id="pic" class="banner_p">
+                <li><img src="./uploads/banner1.jpg" alt=""></li>
+                <li><img src="./uploads/banner2.jpg" alt=""></li>
+                <li><img src="./uploads/banner3.jpg" alt=""></li>
+                <li><img src="./uploads/banner4.png" alt=""></li>
+                <li><img src="./uploads/banner5.jpg" alt=""></li>
+             </ul>
+             <ol id="list" class="banner_b">
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+             </ol>
+           </div>
+            <div class="subject">
+                <p><strong>姓名：</strong>严鸿峰&numsp;&numsp;&numsp;<strong>性别：</strong>男</p>
+                <p><strong>年龄：</strong>20岁&numsp;&numsp;&numsp;<strong>籍贯：</strong>江西赣州</p>
+                <p><strong>核心技能：</strong>HTML5和CSS3</p>
+                <p><strong>职业目标：</strong>成为一名较强的前端开发工程师</p>
+            </div> 
+        </div>
+    </div>
+    <div class="footers">
+        <div class="footer">
+            <p>艺术传媒与计算机学院</p>
+            <p>2023级软件技术1班</p>
+            <p>严鸿峰</p>
+            <p>20230533020146</p>
+        </div>
+    </div>
+
+</body>
+<script>
+    alert("欢迎！");
+    window.onload=function () {
+        var wrap = document.getElementById('wrap'),
+        pic = document.getElementById('pic').getElementsByTagName('li'),
+        list = document.getElementById('list').getElementsByTagName('li'),
+        index = 0;
+        timer =null;
+        function changePic(curIndex){
+            for(var i=0;i<pic.length;++i){
+                pic[i].style.display = "none";
+                list[i].className = "";
+            }
+            pic[curIndex].style.display ="block";
+            list[curIndex].className = "on";
+        }
+        function autoPlay(){
+            if(++index >= pic.length){
+                index = 0;
+            }
+            changePic(index);
+        }
+        timer = setInterval(autoPlay,2000);
+        wrap.onmouseover =function () {
+            clearInterval(timer);
+        }
+        wrap.onmouseout = function () {
+            timer = setInterval(autoPlay,2000);
+        }
+        for(var i=0;i<list.length;i++){
+            list[i].onmouseover =function () {
+                clearInterval(timer);
+                index = this.innerText - 1;
+                changePic(index);
+            }
+        }
+    }
+</script>
+</html>
